@@ -29,10 +29,15 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   
   1. What is the difference between counter1 and counter2?
   
+  the variable is outside the function in the second counter2
+
   2. Which of the two uses a closure? How can you tell?
+  counter 1, because you have a parent and child element in the same function 
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     counter 1 would be preferable. 
+     For counter 2, you would want to put the variable inside the function 
 */
 
 // counter1 code
