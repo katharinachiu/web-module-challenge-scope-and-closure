@@ -28,9 +28,9 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+  count is defined within the function for counter1 and it is hoisted in counter2
   2. Which of the two uses a closure? How can you tell?
-  
+  the first one because of the curly brackets
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
 */
