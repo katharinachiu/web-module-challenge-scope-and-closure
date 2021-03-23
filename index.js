@@ -33,6 +33,7 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   the first one because of the curly brackets
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     I think counter 1 is preferable because it's all within a function and the variable is called afterwards. Counter 2 would be better when you are looking to write shorter code.
 */
 
 // counter1 code
@@ -62,10 +63,10 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+   return Math.floor(Math.random()*3);
 }
-
+console.log(inning);
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
@@ -81,8 +82,15 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inningCB, number){
+  let object = {}
+  let homeScore = 0;
+  let awayScore = 0;
+  for (let i =0; i <= number; i++); {
+    homeScore = homeScore +inningCB ();
+    awayScore = awayScore + inningCB();
+  }
+  return {"Home": homeScore, "Away": awayScore};
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -90,8 +98,8 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
+function getInningScore(inningCB) {
+  return {"Home": inningCB(), "Away":inningCB()}
 }
 
 
@@ -136,10 +144,39 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
-}
+// function scoreboard(inningScoreCB, inningCB, inningNumber) {
+//   let scoresByInning = []
+//   let homeTeamScore = 0;
+//   let awayTeamScore = 0;
 
+//   for (let i = 0; i < inningNumber, i++)
+//   {
+//     let currentInning = getInningScoreCB(inningCB)
+//     homeTeamScore = homeTeamScore + currentInning.Home
+//     awayTeamScore = awayTeamScore + currentInning.Away
+//     scoresByInning.push(`Inning ${i+1}: Away{awayTeamScore} A- Home ${homeTeamScore}`)
+//   }
+//   return scoresByInning;
+
+// }
+// scoreboard(getInningScore, inning, 9);
+
+function scoreboard(inningScoreCB,inningCB, inningNumber) {
+  let scoresByInning = []
+  let homeTeamScore = 0
+  let awayTeamScore =0
+
+  for (let i = 0; i < inningNumber; i++)
+  {
+    let currentInning = getInningScoreCB(inningCB)
+    homeTeamScore = homeTeamScore + currentInning.Home
+    awayTeamScore = awayTeamScore + currentInning.Away
+    scoresByInning.push(`Inning ${i +1}: Away{awayTeamScore} A - Home ${homeTeamScore}`)
+
+  }
+  return scoresByInning;
+}
+scoreboard(getInningScore, inning, 9)
 
 
 
